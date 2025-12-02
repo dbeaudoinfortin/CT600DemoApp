@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,362 +10,339 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_height="38dp"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:paddingHorizontal="16dp"
         android:gravity="center"
-        android:text="CT600 Boombox"
+        android:text="Boombox"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:maxLines="2"
+        android:ellipsize="end"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@null"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/boombox" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fillViewport="true"
+        android:scrollbarStyle="outsideOverlay"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView">
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ScrollView
-            android:id="@+id/scrollView2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:fillViewport="false"
-            android:scrollbarStyle="outsideOverlay"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="20dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/masterText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="All Rooms"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
 
-                    <TextView
-                        android:id="@+id/masterText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="All Rooms"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                <Button
+                    android:id="@+id/masterOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="masterOnClicked"
+                    android:text="ON" />
 
-                    <Button
-                        android:id="@+id/masterOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="masterOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/masterOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="masterOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/zoneAText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="Kitchen"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneAOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneAOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneAOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneAOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/zoneBText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="Living Room"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneBOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneBOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneBOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneBOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/zoneCText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="Master Bed &amp; Bath"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneCOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneCOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneCOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneCOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/zoneDText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="Family Room &amp; Office"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneDOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneDOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneDOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneDOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/zoneEText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="Workshop"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneEOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneEOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneEOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneEOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/zoneFText"
-                        android:layout_width="234dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:gravity="center|right"
-                        android:text="Sunroom"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                        app:layout_constraintEnd_toStartOf="@+id/MasterOnButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneFOnButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneFOnClicked"
-                        android:text="ON"
-                        app:layout_constraintEnd_toStartOf="@+id/masterOffButton"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                    <Button
-                        android:id="@+id/zoneFOffButton"
-                        android:layout_width="64dp"
-                        android:layout_height="43dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_weight="1"
-                        android:onClick="zoneFOffClicked"
-                        android:text="OFF"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-                </LinearLayout>
-
+                <Button
+                    android:id="@+id/masterOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="masterOffClicked"
+                    android:text="OFF" />
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/zoneAText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="Kitchen"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/zoneAOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneAOnClicked"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/zoneAOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneAOffClicked"
+                    android:text="OFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/zoneBText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="Living Room"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/zoneBOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneBOnClicked"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/zoneBOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneBOffClicked"
+                    android:text="OFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/zoneCText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="Master Bed &amp; Bath"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/zoneCOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneCOnClicked"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/zoneCOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneCOffClicked"
+                    android:text="OFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/zoneDText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="Family Room &amp; Office"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/zoneDOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneDOnClicked"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/zoneDOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneDOffClicked"
+                    android:text="OFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/zoneEText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="Workshop"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/zoneEOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneEOnClicked"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/zoneEOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneEOffClicked"
+                    android:text="OFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp">
+
+                <TextView
+                    android:id="@+id/zoneFText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="12dp"
+                    android:gravity="end|center_vertical"
+                    android:text="Sunroom"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:maxLines="2"
+                    android:ellipsize="end" />
+
+                <Button
+                    android:id="@+id/zoneFOnButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneFOnClicked"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/zoneFOffButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="72dp"
+                    android:minHeight="48dp"
+                    android:paddingHorizontal="16dp"
+                    android:onClick="zoneFOffClicked"
+                    android:text="OFF" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
